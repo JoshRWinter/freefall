@@ -1,0 +1,1 @@
+background.tga button.tga buttonsmall.tga powericon.tga conficon.tga pauseicon.tga player.tga obstacle1.tga obstacle2.tga obstacle3.tga obstacle4.tga -o ../assets/assets.pack

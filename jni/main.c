@@ -3,6 +3,7 @@
 #include <android_native_app_glue.h>
 #include <time.h>
 #include <stdlib.h>
+#include <unistd.h>
 #include "defs.h"
 
 extern char *vertexshader,*fragmentshader,*nightfragmentshader;
@@ -79,7 +80,13 @@ int32_t inputproc(struct android_app *app,AInputEvent *event){
 	return false;
 }
 void cmdproc(struct android_app *app,int32_t cmd){
+	struct state *state = app->userData;
 	switch(cmd){
+		case APP_CMD_START:
+			usleep(300000);
+		case APP_CMD_RESUME:
+			hidenavbars(&state->jni_info);
+			break;
 		case APP_CMD_INIT_WINDOW:
 			init_display(app->userData);
 			break;
